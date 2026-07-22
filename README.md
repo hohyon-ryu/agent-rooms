@@ -24,6 +24,28 @@ We are looking for collaborators working on:
 - Telegram, Slack, Teams, and other communication adapters;
 - reliable background execution.
 
+## What it looks like
+
+### 1. Work from the room you already use
+
+Humans talk normally. Mention the visible Team Agent when work is needed; background workers stay behind the interface and the result returns with sources.
+
+![Agent Rooms chat experience: a human invokes the NPI Knowledge Agent, which acknowledges background work and returns a sourced result](docs/images/telegram-room-mockup.png)
+
+### 2. Govern the Room—not an agent org chart
+
+The control plane connects the channel, people, visible agent, invocation policy, knowledge, work, and approvals.
+
+![Agent Rooms administration mockup showing the NPI Knowledge Room, its Telegram binding, members, visible agent, and invocation policy](docs/images/room-console-mockup.png)
+
+### 3. Promote knowledge deliberately
+
+Chat does not automatically become company knowledge. A sourced proposal becomes shared knowledge only after authorized approval.
+
+![Agent Rooms knowledge proposal mockup showing evidence, existing knowledge, classification, and human approval](docs/images/knowledge-approval-mockup.png)
+
+> These are product-direction mockups, not screenshots of a working implementation.
+
 ## Why Agent Rooms?
 
 Most agent systems begin with the agent:
