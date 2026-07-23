@@ -38,9 +38,9 @@ The control plane connects the channel, people, visible agent, invocation policy
 
 ![Agent Rooms administration mockup showing the NPI Knowledge Room, its Telegram binding, members, visible agent, and invocation policy](docs/images/room-console-mockup.png)
 
-### 3. Promote knowledge deliberately
+### 3. Let knowledge compound safely
 
-Chat does not automatically become company knowledge. A sourced proposal becomes shared knowledge only after authorized approval.
+Routine, sourced knowledge can be promoted automatically. Sensitive, conflicting, or consequential knowledge enters an approval flow like the example below.
 
 ![Agent Rooms knowledge proposal mockup showing evidence, existing knowledge, classification, and human approval](docs/images/knowledge-approval-mockup.png)
 
@@ -68,6 +68,173 @@ Organizations begin somewhere else:
 Agent Rooms makes the **organizational room** the primary unit of collaboration, authority, knowledge, and accountability.
 
 Humans select the organizational context. The visible Team Agent selects the technical execution path.
+
+## AI–human organizational patterns
+
+There is no single correct structure for every kind of work. These are the most common patterns and the trade-offs behind the Room approach.
+
+### 1. Personal-agent mesh
+
+```text
+Person A ↔ Personal Agent A ─┐
+Person B ↔ Personal Agent B ─┼─ agent-to-agent coordination
+Person C ↔ Personal Agent C ─┘
+```
+
+Each person speaks only with their own agent. The personal agents communicate on their behalf.
+
+**Pros**
+
+- simple and private individual experience;
+- strong personalization;
+- each person controls what their agent shares;
+- useful for confidential preparation and individual productivity.
+
+**Cons**
+
+- every human idea passes through a summarizing proxy;
+- each agent sees only a narrow slice of the shared situation;
+- inspiration, disagreement, tone, and tacit context are lost in handoffs;
+- agents can mix projects or relationships while relaying context;
+- no participant—including an agent—experiences the full group conversation;
+- agent-to-agent traffic can become complex while remaining invisible to humans.
+
+**Observed failure mode:** the workflow looks simple, but the shared field of view becomes too limited. One agent speaks for other agents, summaries become lossy, and contexts blur together.
+
+### 2. One central organization agent
+
+```text
+Person A ─┐
+Person B ─┼→ Organization Agent
+Person C ─┘
+```
+
+Everyone talks to a single organization-wide agent.
+
+**Pros**
+
+- one interface and one broad organizational memory;
+- simple discovery;
+- fewer agent-to-agent handoffs;
+- easy to establish a recognizable institutional identity.
+
+**Cons**
+
+- becomes a bottleneck and single point of failure;
+- unrelated teams and projects can contaminate one another's context;
+- permissions become dangerously broad;
+- the agent may not know which social or decision context currently applies;
+- difficult to preserve confidentiality between teams.
+
+### 3. Visible specialist-agent swarm
+
+```text
+People + Research Agent + Finance Agent + Legal Agent + Document Agent
+                          in one shared channel
+```
+
+Humans interact directly with several specialist agents in the same space.
+
+**Pros**
+
+- expertise is visible and directly addressable;
+- less hidden delegation;
+- specialists can explain or challenge one another;
+- useful for expert operations teams that understand the agent topology.
+
+**Cons**
+
+- high AI-message volume and notification fatigue;
+- humans must know which agent to call;
+- overlapping answers and unclear accountability;
+- agent identities can dominate the social space;
+- the room becomes an agent console rather than a human workplace.
+
+### 4. Workflow- or Board-first organization
+
+```text
+People → Forms / Board / Workflow Engine → Agents → Tasks and Artifacts
+```
+
+Work begins as structured tickets rather than conversation.
+
+**Pros**
+
+- reliable state, ownership, deadlines, and audit;
+- good for repeatable and regulated processes;
+- easier retries, recovery, and cost accounting;
+- clear machine-readable inputs and outputs.
+
+**Cons**
+
+- people must leave their natural conversational environment;
+- spontaneous ideas and evolving context are poorly captured;
+- setup cost is high for ambiguous creative work;
+- the workflow can become more important than the collaboration.
+
+### 5. Room-based Team Agent — recommended default
+
+```text
+┌─────────────────────────────────────┐
+│ Room                                │
+│                                     │
+│ People ↔ one visible Team Agent     │
+│          └→ background specialists  │
+└─────────────────────────────────────┘
+```
+
+A group of people shares one visible Team Agent inside a bounded Room. The agent can listen to the shared conversation according to Room policy, gather the group's inspirations and insights, and turn them into work and artifacts. Specialist agents remain behind the interface.
+
+**Pros**
+
+- the agent sees the same shared context as the group;
+- human ideas combine before being compressed into private summaries;
+- one coherent interface keeps agent noise low;
+- Room boundaries separate projects, permissions, and knowledge;
+- collective creativity can accumulate into shared artifacts and knowledge;
+- people remain visible to one another instead of communicating through proxies.
+
+**Cons**
+
+- the agent must avoid interrupting ordinary human conversation;
+- sensitive personal context cannot be assumed to belong in the Room;
+- large or poorly scoped Rooms can still overload context;
+- cross-Room knowledge needs explicit provenance and policy;
+- one visible agent can become a bottleneck unless background work is well designed.
+
+An agent may be invited to many Rooms, but every Room receives an isolated session, membership, permission set, and knowledge scope. Shared learning moves between Rooms only through governed organizational knowledge—not accidental context blending.
+
+### 6. Hybrid personal agents + Room agents
+
+```text
+Person ↔ Personal Agent
+   │
+   └────────→ Shared Room ↔ Team Agent
+```
+
+Personal agents support private thinking; Room agents support collective work.
+
+**Pros**
+
+- preserves private assistance without making personal agents the sole representatives;
+- individuals can prepare privately, then contribute directly to the group;
+- shared work remains grounded in the actual Room conversation;
+- likely the strongest long-term model for complex organizations.
+
+**Cons**
+
+- handoffs require clear consent and provenance;
+- private memory must never leak automatically into Room context;
+- users need to understand whether they are speaking privately or organizationally;
+- more identities and surfaces increase operational complexity.
+
+### Why Rooms are the current best bet
+
+The Room model is not valuable because it adds another chatbot. It is valuable because it creates a shared field of attention:
+
+> People contribute directly, one Team Agent experiences the collective context, and many interchangeable agents can execute behind it without taking over the conversation.
+
+The visible Team Agent may run in Hermes, OpenClaw, a managed cloud runtime, a desktop application, or a phone with an embedded local model. The organizational structure remains the same.
 
 ## The basic model
 
@@ -127,17 +294,20 @@ Teams should be able to work from the communication tools they already use. A ne
 
 Conversation remains the primary collaboration surface. A durable work ledger records ownership, status, deadlines, approvals, artifacts, retries, recovery, and cost.
 
-### 5. Knowledge is promoted, not harvested
+### 5. Knowledge compounds automatically—with review at risk boundaries
 
-A conversation is not automatically organizational knowledge.
+The system should detect reusable knowledge continuously, then apply deterministic source, permission, conflict, sensitivity, and risk checks.
 
 ```text
 Conversation
-→ Knowledge or decision candidate
-→ Source and conflict review
-→ Authorized approval
-→ Versioned organizational knowledge
+→ Candidate detected
+→ Sources and permissions checked
+→ Conflict and risk scored
+→ Auto-publish OR request approval
+→ Revalidate, supersede, or expire over time
 ```
+
+Routine facts, sourced summaries, terminology, and resolved questions can become organizational knowledge automatically. Conflicting information, sensitive material, policies, and consequential decisions require authorized review.
 
 ### 6. Policy is deterministic
 
@@ -338,20 +508,22 @@ Identity and grants must come from trusted system state—not prompt text suppli
 
 ## Knowledge lifecycle
 
-A `KnowledgeRecord` has an explicit lifecycle:
+A `KnowledgeRecord` has an explicit, risk-aware lifecycle:
 
 ```text
-proposed → approved → superseded
-         ↘ rejected
-approved → expired
-approved → deleted
+detected → evaluating ─┬→ approved automatically → superseded / expired
+                       └→ awaiting review → approved / rejected
 ```
+
+Low-risk promotion is automatic when sources, permissions, classification, confidence, and conflict checks pass. The decision records the policy version and evidence that permitted automatic publication.
 
 A record should include:
 
 - source and source location;
 - author or proposing agent;
-- approver;
+- promotion mode: automatic or reviewed;
+- approving policy version or human approver;
+- confidence and risk classification;
 - version and effective date;
 - security classification;
 - Room and organizational scope;
@@ -366,9 +538,10 @@ A correction does not silently overwrite history. It creates a `KnowledgeProposa
 1. identifies the challenged record;
 2. preserves both old and proposed versions;
 3. provides evidence;
-4. names the required approver;
-5. supersedes the old record only after approval;
-6. invalidates or rebuilds derived search indexes.
+4. evaluates conflict, sensitivity, and consequence;
+5. auto-promotes when policy permits, otherwise names the required approver;
+6. supersedes the old record only after authorization;
+7. invalidates or rebuilds derived search indexes.
 
 ## Work lifecycle
 
